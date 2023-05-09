@@ -1,0 +1,50 @@
+package classes;
+import javax.swing.JOptionPane;
+
+public class remota extends salas {
+    private int computadores;
+   
+    public remota(String id, int capacidade, boolean tipoEvento, String responsavel,
+    		int computadores) {
+        super(id, capacidade, tipoEvento, responsavel);
+        this.computadores = computadores;
+    }
+
+    // getters e setters
+    public int getComputadores() {
+        return computadores;
+    }
+    public void setComputadores(int computadores) {
+        this.computadores = computadores;
+    }
+    
+    @Override
+    public void reservar() {
+        boolean tipoEvento = Boolean.parseBoolean(JOptionPane.showInputDialog("Digite o tipo se o evento é repetitivo (true para sim e false não):"));
+        this.setTipoEvento(tipoEvento);
+        if (tipoEvento == true) {
+            System.out.println("A sala remota só pode ser usada por eventos NÃO repetitivos");
+        } else {
+         
+            String id = JOptionPane.showInputDialog("Digite o número da sala remota. (Temos 10 salas, de RM01 á RM10");
+            this.setId(id);
+            int capacidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a capacidade da sala remota:"));
+            this.setCapacidade(capacidade);
+            String responsavel = JOptionPane.showInputDialog("Digite o nome do responsável pela reserva da sala:");
+            this.setResponsavel(responsavel);
+            int computadores = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de computadores disponíveis na sala remota:"));
+            this.setComputadores(computadores);
+         
+            String dataInicio = JOptionPane.showInputDialog("Digite a data de inicio da reserva: ");
+            String dataFim = JOptionPane.showInputDialog("Digite a data de fim da reserva: "); 
+         
+            // código para reservar a sala
+            // ...
+         
+            JOptionPane.showMessageDialog(null, "Sala remota reservada com sucesso para as datas " + dataInicio + " a " + dataFim);
+            System.out.println("A sala "+this.getId()+" foi reservada entre as "+ dataInicio+" e "+dataFim+". \n"+
+            "Será ministrada por "+ this.getResponsavel()+" e terá capacidade para "+this.getCapacidade()+" Alunos. \n"+
+                    "A sala possui "+this.getComputadores()+" para uso.");
+         }
+    }
+}
