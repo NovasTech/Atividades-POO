@@ -1,0 +1,58 @@
+package principal;
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+import classes.lbaps;
+import classes.fisica;
+import classes.remota;
+import classes.normal;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        String X = "";
+        String Y = "";
+
+        JOptionPane.showMessageDialog(null,"Iniciando processo, Aguarde...");
+        String nome = JOptionPane.showInputDialog("Responsável, por favor, digite seu nome.");
+
+        int i = JOptionPane.showConfirmDialog(
+            null, 
+            "Bem vindo "+nome+", ao TeleSalas2000, gostaria de reservar uma sala?"
+        );
+
+        if(i == JOptionPane.YES_OPTION) {
+            System.out.println("Processo iniciado...");
+            String tiposala = JOptionPane.showInputDialog("Qual tipo de sala gostarias de reservar? Lembre-se, temos = normal, remota, fisica e lbaps");
+
+            X = tiposala;
+
+            switch(X){
+                case "normal": 
+                    normal nr1= new normal("", 0, false, "", "", 0, 0);
+                    nr1.reservar();
+                    break;
+                case "remota": 
+                    remota rm1= new remota("", 0, false, "", 0);
+                    rm1.reservar();
+                    break;
+                case "fisica": 
+                    fisica fs1= new fisica("", 0, false, "", "", 0);
+                    fs1.reservar();
+                    break;
+                case "lbaps": 
+                    lbaps aps1 = new lbaps("", 0, false, "", "", 0);
+                    aps1.reservar();
+                    break;
+            }
+        }
+        else if(i == JOptionPane.NO_OPTION) {
+            System.out.println("Então tá bom, tchau.");
+        }
+        else if(i == JOptionPane.CANCEL_OPTION) {
+            System.out.println("Ta bom.");
+        }
+    }
+}
