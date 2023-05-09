@@ -1,0 +1,33 @@
+package classes;
+
+import javax.swing.JOptionPane;
+
+public class lbaps extends laboratorio {
+    public lbaps(String id, int capacidade, boolean tipoEvento, String responsavel, String disciplina,
+			int equipamentos) {
+		super(id, capacidade, tipoEvento, responsavel, disciplina, equipamentos);
+	}
+
+    @Override
+    public void reservar() {
+        String id = JOptionPane.showInputDialog("Digite o número da sala de APS. (Temos 10 salas, de AP01 á AP10)");
+        this.setId(id);
+        int capacidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a capacidade da sala APS:"));
+        this.setCapacidade(capacidade);
+        int equipamentos = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de equipamentos na sala:"));
+        this.setEquipamentos(equipamentos);
+        String responsavel = JOptionPane.showInputDialog("Digite o nome do responsável pela reserva da sala:");
+        this.setResponsavel(responsavel);
+
+        String dataInicio = JOptionPane.showInputDialog("Digite a data de inicio da reserva: ");
+        String dataFim = JOptionPane.showInputDialog("Digite a data de fim da reserva: "); 
+
+        // código para reservar a sala
+        // ...
+
+        JOptionPane.showMessageDialog(null, "Sala APS reservada com sucesso para as datas " + dataInicio + " a " + dataFim);
+        System.out.println("A sala " + this.getId() + " foi reservada entre as " + dataInicio + " e " + dataFim + ". \n" +
+                "Será ministrada por " + this.getResponsavel() + " e terá capacidade para " + this.getCapacidade() + " Alunos. \n" +
+                "A sala possui " + this.getEquipamentos() + " Equipamentos para uso.");
+    } 
+}
