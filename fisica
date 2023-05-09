@@ -1,0 +1,42 @@
+package classes;
+import javax.swing.JOptionPane;
+
+public class fisica extends laboratorio {
+    private int equipamentosFisica;
+
+    public fisica(String id, int capacidade, boolean tipoEvento, String responsavel, String disciplina, int equipamentosFisica) {
+        super(id, capacidade, tipoEvento, responsavel, disciplina, capacidade);
+        this.equipamentosFisica = equipamentosFisica;
+    }
+
+    // getter e setter
+    public int getEquipamentosFisica() {
+        return equipamentosFisica;
+    }
+    public void setEquipamentosFisica(int equipamentosFisica) {
+        this.equipamentosFisica = equipamentosFisica;
+    }
+
+	@Override
+	public void reservar() {
+		String id = JOptionPane.showInputDialog("Digite o número da sala Fisica. (Temos 10 salas, de FC01 á FC10)");
+		this.setId(id);
+		int capacidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a capacidade da sala Fisica:"));
+		this.setCapacidade(capacidade);
+		int equipamentosFisica = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de equipamentos para a aula de Fisica:"));
+		this.setEquipamentosFisica(equipamentosFisica);
+		String responsavel = JOptionPane.showInputDialog("Digite o nome do responsável pela reserva da sala:");
+		this.setResponsavel(responsavel);
+			 
+		String dataInicio = JOptionPane.showInputDialog("Digite a data de inicio da reserva: ");
+		String dataFim = JOptionPane.showInputDialog("Digite a data de fim da reserva: "); 
+
+		// código para reservar a sala
+		// ...
+
+		JOptionPane.showMessageDialog(null, "Sala Fisica reservada com sucesso para as datas " + dataInicio + " a " + dataFim);
+		System.out.println("A sala "+this.getId()+" foi reservada entre as "+ dataInicio+" e "+dataFim+". \n"+
+			"Será ministrada por "+ this.getResponsavel()+" e terá capacidade para "+this.getCapacidade()+" Alunos. \n"+
+			"A sala possui "+this.getEquipamentosFisica()+" Equipamentos de Fisica para uso.");
+	} 
+}
