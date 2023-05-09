@@ -2,7 +2,8 @@
 O código é apenas uma base, é ALTAMENTE recomendável você modificar.
 
 # Sobre certas variáveis
-variáveis como "packages principal;" são apenas válidas quando seu arquivo .java
+Foram construidas conforme MEUS parâmetros, para atender MINHAS necessidades.
+Variáveis como "packages principal;" são apenas válidas quando seu arquivo .java
 está inserido em um package com mesmo nome, portanto, mude conforme sua necessidade.
 
 O mesmo se aplica a "normal, remota, fisica e lbaps".
